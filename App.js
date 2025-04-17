@@ -1,20 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+import TelaHome from './telas/TelaHome';
+import TelaExplorar from './telas/TelaExplorar';
+import TelaCampanhas from './telas/TelaCampanhas';
+import TelaDoacoes from './telas/TelaDoacoes';
+import TelaSobreNos from './telas/TelaSobreNos';
+import TelaCadastro from './telas/TelaCadastro';
+import TelaOngs from './telas/TelaOngs';
+
+
+const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
+function MainStack() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={TelaHome} />
+      <Stack.Screen name="Cadastrar" component={TelaCadastro} />
+      <Stack.Screen name="Explorar" component={TelaExplorar} />
+      <Stack.Screen name="Campanhas" component={TelaCampanhas} />
+      <Stack.Screen name="ONGs" component={TelaOngs} />
+      <Stack.Screen name="Minhas Doações" component={TelaDoacoes} />
+      <Stack.Screen name="Sobre Nós" component={TelaSobreNos} />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={MainStack} />
+        <Drawer.Screen name="Cadastrar" component={TelaCadastro} />
+        <Drawer.Screen name="Explorar" component={TelaExplorar} />
+        <Drawer.Screen name="Campanhas" component={TelaCampanhas} />
+        <Drawer.Screen name="ONGs" component={TelaOngs} />
+        <Drawer.Screen name="Minhas Doações" component={TelaDoacoes} />
+        <Drawer.Screen name="Sobre Nós" component={TelaSobreNos} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
