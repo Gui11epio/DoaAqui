@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 
 export default function TelaCadastro() {
   const [nome, setNome] = useState('');
@@ -12,50 +12,91 @@ export default function TelaCadastro() {
       return;
     }
 
-    
     console.log({ nome, email, tipo });
     Alert.alert('Sucesso', 'Cadastro realizado com sucesso!');
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Cadastro</Text>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
+      <ScrollView contentContainerStyle={styles.inner}>
+        <Text style={styles.title}>Cadastro</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Nome completo"
-        value={nome}
-        onChangeText={setNome}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="E-mail"
-        keyboardType="email-address"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Tipo (usuario ou voluntario)"
-        value={tipo}
-        onChangeText={setTipo}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Nome completo"
+          value={nome}
+          onChangeText={setNome}
+          placeholderTextColor="#888"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="E-mail"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+          placeholderTextColor="#888"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Tipo (usuario ou voluntario)"
+          value={tipo}
+          onChangeText={setTipo}
+          placeholderTextColor="#888"
+        />
 
-      <TouchableOpacity style={styles.button} onPress={handleRegister}>
-        <Text style={styles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity style={styles.button} onPress={handleRegister}>
+          <Text style={styles.buttonText}>Cadastrar</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 20, flex: 1, justifyContent: 'center' },
-  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
+  container: {
+    flex: 1,
+    backgroundColor: '#F2F2F2',
+  },
+  inner: {
+    padding: 24,
+    justifyContent: 'center',
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 30,
+    textAlign: 'center',
+    color: '#333',
+  },
   input: {
-    borderWidth: 1, borderColor: '#ccc', padding: 12, marginBottom: 15, borderRadius: 8,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    fontSize: 16,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    color: '#000',
   },
   button: {
-    backgroundColor: '#2E8B57', padding: 15, borderRadius: 8, alignItems: 'center',
+    backgroundColor: '#5DB075',
+    paddingVertical: 16,
+    borderRadius: 10,
+    alignItems: 'center',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
-  buttonText: { color: 'white', fontWeight: 'bold', fontSize: 16 },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+  },
 });

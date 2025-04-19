@@ -16,7 +16,7 @@ export default function TelaDoacoes() {
         renderItem={({ item }) => (
           <View style={styles.item}>
             <Text style={styles.causa}>{item.causa}</Text>
-            <Text>{item.valor} - {item.data}</Text>
+            <Text style={styles.details}>{item.valor} - {item.data}</Text>
           </View>
         )}
       />
@@ -27,20 +27,33 @@ export default function TelaDoacoes() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: '#F9F9F9',
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 28,
     fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 20,
+    textAlign: 'center',
   },
   item: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderWidth:1,
+    borderRadius: 12,
     marginBottom: 15,
-    backgroundColor: '#e0e0e0',
-    padding: 15,
-    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 5,
   },
   causa: {
-    fontWeight: 'bold',
     fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  details: {
+    fontSize: 16,
+    color: '#777',
   },
 });

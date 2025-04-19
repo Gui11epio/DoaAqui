@@ -13,7 +13,7 @@ export default function TelaOngs() {
           id: item.id,
           nome: item.fields.name,
           descricao: item.fields.description || 'Sem descrição disponível',
-          link: item.fields.url || 'https://reliefweb.int'
+          link: item.fields.url || 'https://reliefweb.int',
         }));
         setOngs(listaOngs);
         setLoading(false);
@@ -37,7 +37,7 @@ export default function TelaOngs() {
         renderItem={({ item }) => (
           <View style={styles.ongCard}>
             <Text style={styles.ongName}>{item.nome}</Text>
-            <Text>{item.descricao}</Text>
+            <Text style={styles.ongDescription}>{item.descricao}</Text>
             <Text style={styles.link} onPress={() => Linking.openURL(item.link)}>
               Saiba mais
             </Text>
@@ -49,14 +49,41 @@ export default function TelaOngs() {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 20 },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
+  container: { 
+    padding: 20,
+    backgroundColor: '#fff' 
+  },
+  title: { 
+    fontSize: 24, 
+    fontWeight: 'bold', 
+    marginBottom: 20, 
+    textAlign: 'center' 
+  },
   ongCard: {
     marginBottom: 20,
     padding: 15,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f9f9f9',
     borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 3,
+    borderWidth:1
   },
-  ongName: { fontSize: 18, fontWeight: 'bold' },
-  link: { color: 'blue', marginTop: 5 },
+  ongName: { 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    marginBottom: 5 
+  },
+  ongDescription: { 
+    fontSize: 14, 
+    color: '#666', 
+    marginBottom: 10 
+  },
+  link: { 
+    color: '#1E90FF', 
+    fontSize: 16, 
+    textDecorationLine: 'underline' 
+  },
 });

@@ -30,19 +30,31 @@ export default function TelaExplorar() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 28,
     fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 20,
+    textAlign: 'center',
   },
   card: {
-    backgroundColor: '#f2f2f2',
-    padding: 20,
-    marginBottom: 10,
-    borderRadius: 10,
+    backgroundColor: '#fff',
+    paddingVertical: 18,
+    paddingHorizontal: 25,
+    marginBottom: 15,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
+    alignItems: 'flex-start',
+    borderWidth:1
   },
   cardText: {
     fontSize: 18,
+    fontWeight: '600',
   },
 });
