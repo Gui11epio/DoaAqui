@@ -27,15 +27,11 @@ function DrawerScreens() {
   );
 }
 
-// 2. Stack principal que inclui o Drawer e telas extras (como Cadastro)
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* Tela com o Drawer Menu */}
         <Stack.Screen name="Drawer" component={DrawerScreens} />
-        
-        {/* Telas fora do Drawer, como formulários ou detalhes */}
         <Stack.Screen name="Cadastrar" component={TelaCadastro} />
       </Stack.Navigator>
     </NavigationContainer>

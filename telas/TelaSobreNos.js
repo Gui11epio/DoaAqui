@@ -1,5 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  Linking,
+} from 'react-native';
 
 export default function TelaSobreNos() {
   return (
@@ -13,28 +21,91 @@ export default function TelaSobreNos() {
 
       <Text style={styles.subtitle}>👨‍💻 Equipe de Desenvolvimento</Text>
 
+      
       <View style={styles.devBox}>
+
         <Image source={require('../assets/dev1.jpeg')} style={styles.devImage} />
         <View style={styles.devInfo}>
+
           <Text style={styles.devText}>Guilherme Camasmie Laiber de Jesus</Text>
           <Text style={styles.rmText}>RM: 554894</Text>
+
+          <View style={styles.links}>
+            <TouchableOpacity
+              onPress={() => Linking.openURL('https://github.com/Gui11epio')}
+              style={[styles.linkButton, styles.github]}
+            >
+              <Text style={styles.linkText}>GitHub</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => Linking.openURL('https://www.linkedin.com/in/guilherme-camasmie-laiber-de-jesus-6111a82b6/')}
+              style={[styles.linkButton, styles.linkedin]}
+            >
+              <Text style={styles.linkText}>LinkedIn</Text>
+            </TouchableOpacity>
+          </View>
+      
         </View>
+
       </View>
 
+    
       <View style={styles.devBox}>
+
         <Image source={require('../assets/dev2.jpeg')} style={styles.devImage} />
         <View style={styles.devInfo}>
+
           <Text style={styles.devText}>Pedro Manzo Yokoo</Text>
           <Text style={styles.rmText}>RM: 556115</Text>
+
+          <View style={styles.links}>
+            <TouchableOpacity
+              onPress={() => Linking.openURL('https://github.com/Pedro-sugoy')}
+              style={[styles.linkButton, styles.github]}
+            >
+              <Text style={styles.linkText}>GitHub</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => Linking.openURL('https://www.linkedin.com/in/pedro-yokoo-36291a319/')}
+              style={[styles.linkButton, styles.linkedin]}
+            >
+              <Text style={styles.linkText}>LinkedIn</Text>
+            </TouchableOpacity>
+
+          </View>
+
         </View>
+
       </View>
 
+      
       <View style={styles.devBox}>
+
         <Image source={require('../assets/dev3.jpeg')} style={styles.devImage} />
         <View style={styles.devInfo}>
+
           <Text style={styles.devText}>Fernando Fernandes Prado</Text>
           <Text style={styles.rmText}>RM: 557982</Text>
+
+          <View style={styles.links}>
+
+            <TouchableOpacity
+              onPress={() => Linking.openURL('https://github.com/fehunterbr')}
+              style={[styles.linkButton, styles.github]}
+            >
+              <Text style={styles.linkText}>GitHub</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => Linking.openURL('https://www.linkedin.com/in/fernando-prado-41b61524b/')}
+              style={[styles.linkButton, styles.linkedin]}
+            >
+              <Text style={styles.linkText}>LinkedIn</Text>
+            </TouchableOpacity>
+
+          </View>
+
         </View>
+        
       </View>
     </ScrollView>
   );
@@ -97,5 +168,26 @@ const styles = StyleSheet.create({
   rmText: {
     fontSize: 14,
     color: '#555',
+  },
+  links: {
+    flexDirection: 'row',
+    marginTop: 8,
+    gap: 10,
+  },
+  linkButton: {
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderRadius: 6,
+  },
+  github: {
+    backgroundColor: '#333',
+  },
+  linkedin: {
+    backgroundColor: '#0077B5',
+  },
+  linkText: {
+    color: '#FFF',
+    fontSize: 14,
+    fontWeight: '500',
   },
 });
