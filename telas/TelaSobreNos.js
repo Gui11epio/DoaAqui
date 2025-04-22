@@ -16,7 +16,7 @@ export default function TelaSobreNos() {
       <View style={styles.devBox}>
         <Image source={require('../assets/dev1.jpeg')} style={styles.devImage} />
         <View style={styles.devInfo}>
-          <Text style={styles.devText}>Guilherme Camasmie</Text>
+          <Text style={styles.devText}>Guilherme Camasmie Laiber de Jesus</Text>
           <Text style={styles.rmText}>RM: 554894</Text>
         </View>
       </View>

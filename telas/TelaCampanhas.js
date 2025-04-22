@@ -1,10 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Button, Linking, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Linking,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 
 export default function TelaCampanhas({ navigation }) {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>💚 Campanhas Emergênciais</Text>
+      <Text style={styles.title}>💚 Campanhas Emergenciais</Text>
 
       <View style={styles.campaignCard}>
         <Image
@@ -12,20 +20,20 @@ export default function TelaCampanhas({ navigation }) {
           style={styles.image}
         />
         <Text style={styles.caption}>Ajuda para vítimas das enchentes no RS</Text>
-        <View style={styles.buttonGroup}>
-          <Button
-            title="Visitar site parceiro"
-            onPress={() => Linking.openURL('https://sosenchentes.rs.gov.br/inicial')}
-            color="#5DB075"
-          />
-        </View>
-        <View style={styles.buttonGroup}>
-          <Button
-            title="Fazer uma Doação"
-            onPress={() => navigation.navigate('Minhas Doações')}
-            color="#2980B9"
-          />
-        </View>
+
+        <TouchableOpacity
+          style={[styles.button, styles.LinkButton]}
+          onPress={() => Linking.openURL('https://sosenchentes.rs.gov.br/inicial')}
+        >
+          <Text style={styles.buttonText}>Visitar site parceiro</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.button, styles.DonationButton]}
+          onPress={() => navigation.navigate('Minhas Doações')}
+        >
+          <Text style={styles.buttonText}>Fazer uma Doação</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.campaignCard}>
@@ -34,20 +42,20 @@ export default function TelaCampanhas({ navigation }) {
           style={styles.image}
         />
         <Text style={styles.caption}>Campanha contra a fome em comunidades</Text>
-        <View style={styles.buttonGroup}>
-          <Button
-            title="Visitar site parceiro"
-            onPress={() => Linking.openURL('https://pactocontrafome.org/')}
-            color="#5DB075"
-          />
-        </View>
-        <View style={styles.buttonGroup}>
-          <Button
-            title="Fazer uma Doação"
-            onPress={() => navigation.navigate('Minhas Doações')}
-            color="#2980B9"
-          />
-        </View>
+
+        <TouchableOpacity
+          style={[styles.button, styles.LinkButton]}
+          onPress={() => Linking.openURL('https://pactocontrafome.org/')}
+        >
+          <Text style={styles.buttonText}>Visitar site parceiro</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.button, styles.DonationButton]}
+          onPress={() => navigation.navigate('Minhas Doações')}
+        >
+          <Text style={styles.buttonText}>Fazer uma Doação</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -69,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 16,
     marginBottom: 25,
-    paddingBottom: 10,
+    paddingBottom: 20,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 10,
@@ -86,11 +94,26 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#34495E',
-    padding: 10,
+    padding: 12,
     textAlign: 'center',
   },
-  buttonGroup: {
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 8,
+    marginTop: 10,
     marginHorizontal: 20,
-    marginTop: 8,
+    alignItems: 'center',
+  },
+  DonationButton: {
+    backgroundColor: '#5DB075',
+  },
+  LinkButton: {
+    backgroundColor: '#2980B9',
+  },
+  buttonText: {
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
