@@ -20,7 +20,6 @@ function DrawerScreens() {
       <Drawer.Screen name="Home" component={TelaHome} />
       <Drawer.Screen name="Explorar" component={TelaExplorar} />
       <Drawer.Screen name="Campanhas" component={TelaCampanhas} />
-      <Drawer.Screen name="Minhas Doações" component={TelaDoacoes} />
       <Drawer.Screen name="ONGs" component={TelaOngs} />
       <Drawer.Screen name="Sobre Nós" component={TelaSobreNos} />
     </Drawer.Navigator>
@@ -33,6 +32,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Drawer" component={DrawerScreens} />
         <Stack.Screen name="Cadastrar" component={TelaCadastro} />
+        <Stack.Screen name="Doações" component={TelaDoacoes} />
       </Stack.Navigator>
     </NavigationContainer>
   );

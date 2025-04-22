@@ -33,7 +33,7 @@ export default function TelaHome({ navigation }) {
 
         <TouchableOpacity
           style={[styles.button, styles.donationButton]}
-          onPress={() => navigation.navigate('Minhas Doações')}
+          onPress={() => navigation.navigate('Doações')}
         >
           <Text style={styles.buttonText}>Fazer uma Doação</Text>
         </TouchableOpacity>
@@ -52,7 +52,7 @@ export default function TelaHome({ navigation }) {
 
         <TouchableOpacity
           style={[styles.button, styles.donationButton]}
-          onPress={() => navigation.navigate('Minhas Doações')}
+          onPress={() => navigation.navigate('Doações')}
         >
           <Text style={styles.buttonText}>Fazer uma Doação</Text>
         </TouchableOpacity>

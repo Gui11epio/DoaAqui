@@ -33,7 +33,7 @@ export default function TelaDoacoes() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>✨ Minhas Doações</Text>
+      <Text style={styles.title}>✨Doações</Text>
 
       <View style={styles.form}>
         <TextInput

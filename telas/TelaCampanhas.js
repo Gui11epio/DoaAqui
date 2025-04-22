@@ -30,7 +30,7 @@ export default function TelaCampanhas({ navigation }) {
 
         <TouchableOpacity
           style={[styles.button, styles.DonationButton]}
-          onPress={() => navigation.navigate('Minhas Doações')}
+          onPress={() => navigation.navigate('Doações')}
         >
           <Text style={styles.buttonText}>Fazer uma Doação</Text>
         </TouchableOpacity>
@@ -52,7 +52,7 @@ export default function TelaCampanhas({ navigation }) {
 
         <TouchableOpacity
           style={[styles.button, styles.DonationButton]}
-          onPress={() => navigation.navigate('Minhas Doações')}
+          onPress={() => navigation.navigate('Doações')}
         >
           <Text style={styles.buttonText}>Fazer uma Doação</Text>
         </TouchableOpacity>
