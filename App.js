@@ -11,36 +11,33 @@ import TelaSobreNos from './telas/TelaSobreNos';
 import TelaCadastro from './telas/TelaCadastro';
 import TelaOngs from './telas/TelaOngs';
 
-
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-function MainStack() {
+function DrawerScreens() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={TelaHome} />
-      <Stack.Screen name="Cadastrar" component={TelaCadastro} />
-      <Stack.Screen name="Explorar" component={TelaExplorar} />
-      <Stack.Screen name="Campanhas" component={TelaCampanhas} />
-      <Stack.Screen name="ONGs" component={TelaOngs} />
-      <Stack.Screen name="Minhas Doações" component={TelaDoacoes} />
-      <Stack.Screen name="Sobre Nós" component={TelaSobreNos} />
-    </Stack.Navigator>
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={TelaHome} />
+      <Drawer.Screen name="Explorar" component={TelaExplorar} />
+      <Drawer.Screen name="Campanhas" component={TelaCampanhas} />
+      <Drawer.Screen name="Minhas Doações" component={TelaDoacoes} />
+      <Drawer.Screen name="ONGs" component={TelaOngs} />
+      <Drawer.Screen name="Sobre Nós" component={TelaSobreNos} />
+    </Drawer.Navigator>
   );
 }
 
+// 2. Stack principal que inclui o Drawer e telas extras (como Cadastro)
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={MainStack} />
-        <Drawer.Screen name="Cadastrar" component={TelaCadastro} />
-        <Drawer.Screen name="Explorar" component={TelaExplorar} />
-        <Drawer.Screen name="Campanhas" component={TelaCampanhas} />
-        <Drawer.Screen name="ONGs" component={TelaOngs} />
-        <Drawer.Screen name="Minhas Doações" component={TelaDoacoes} />
-        <Drawer.Screen name="Sobre Nós" component={TelaSobreNos} />
-      </Drawer.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {/* Tela com o Drawer Menu */}
+        <Stack.Screen name="Drawer" component={DrawerScreens} />
+        
+        {/* Telas fora do Drawer, como formulários ou detalhes */}
+        <Stack.Screen name="Cadastrar" component={TelaCadastro} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
